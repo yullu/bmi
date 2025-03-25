@@ -64,9 +64,13 @@
                 {
                     document.getElementById('status').innerHTML = "Your are Overweight"
                 }
-                else
+                else if(total > 30)
                 {
                      document.getElementById('status').innerHTML = "Your are Obese"
+                }
+                else
+                {
+                     document.getElementById('status').innerHTML = "Invalid input"
                 }
 
             }
