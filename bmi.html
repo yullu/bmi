@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 30%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button{
+            border: 1px solid #FF0000;
+            padding:8px;
+            background-color: #FF0000;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>MBI Calculator</h2>
+        <form>
+            <input type="text" id="weight" placeholder="Enter weight in Kgs">
+            <input type="text" id="height" placeholder="Enter height in metres">
+        </form>
+        <button onclick="bmi()">Calculate</button>
+        <script>
+            function bmi()
+            {
+                let total = 0
+                let wei = document.getElementById('weight').value
+                let hei = document.getElementById('height').value
+                
+                total = Number(wei) / Number(hei*hei)
+                document.getElementById('fig').innerHTML = total
+
+                if(total < 18.5)
+                {
+                    document.getElementById('status').innerHTML = "Your are Underweight"
+                }
+                else if(total > 18.5 && total < 24.9){
+                    document.getElementById('status').innerHTML = "Your are Healthy Weight"
+                }
+                else if(total > 25 && total < 29.9)
+                {
+                    document.getElementById('status').innerHTML = "Your are Overweight"
+                }
+                else
+                {
+                     document.getElementById('status').innerHTML = "Your are Obese"
+                }
+
+            }
+        </script>
+        <p>Your MBI is:</p>
+        <p id="fig"></p>
+        <p id="status"></p>
+
+    </div>
+    
+</body>
+</html>
